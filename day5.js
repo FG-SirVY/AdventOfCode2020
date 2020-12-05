@@ -3,8 +3,6 @@ const EOL = require('os').EOL
 
 const passes = fs.readFileSync('input/day5.txt', 'utf-8').split(EOL)
 
-let highestId = 0
-
 function getIndex(slice, lowerIndicator, min, max) {
     if (slice.length > 0) {
         if (slice.charAt(0) == lowerIndicator)
@@ -21,6 +19,8 @@ function getSeatId(str) {
 }
 
 /*
+let highestId = 0
+
 Part One
 passes.forEach(p => {
     const id = getSeatId(p.trim())
