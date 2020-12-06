@@ -41,6 +41,8 @@ numAnswers += resetYesArray(yesArray)
 console.log(numAnswers)
 */
 
+// Part Two
+
 const countArray = []
 for (let i = 0; i < 26; i++) {
     countArray.push(0)
