@@ -66,7 +66,7 @@ function traverseUp(bag, count) {
     return count
 }
 
-count = console.log(traverseUp(bagsMap['shinygold'], -1))*/
+console.log(traverseUp(bagsMap['shinygold'], -1))*/
 
 
 // Part Two
