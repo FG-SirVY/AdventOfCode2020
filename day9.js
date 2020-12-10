@@ -1,12 +1,7 @@
 const fs = require('fs')
 const EOL = require('os').EOL
 
-const lines = fs.readFileSync('input/day9.txt', 'utf-8').split(EOL)
-const numbers = []
-
-lines.forEach(l => {
-    numbers.push(parseInt(l))
-})
+const numbers = fs.readFileSync('input/day9.txt', 'utf-8').split(EOL).map(n => parseInt(n))
 
 let value
 
