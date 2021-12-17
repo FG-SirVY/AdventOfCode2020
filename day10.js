@@ -1,10 +1,10 @@
 const fs = require('fs')
 const EOL = require('os').EOL
 
-const numbers = fs.readFileSync('input/day10.txt', 'utf-8').split(EOL).map(n => parseInt(n))
+const numbers = fs.readFileSync('input/day10_alt.txt', 'utf-8').split(EOL).map(n => parseInt(n))
 
 numbers.sort((a, b) => {
-    return a -b
+    return a - b
 })
 
 /*Part One
@@ -25,9 +25,21 @@ numbers.forEach(n => {
 console.log(singleJoltCount * threeJoltCount)*/
 
 // Part Two
-/*
-const differences = [ numbers[0] ]
 
-for (let i = 1; i < numbers.length; i++) {
-    differences.push(numbers[i] - numbers[i - 1])
-}*/
+
+function chooseNext(numbers, index) {
+    let count = 0
+    let threshold = numbers[index]
+    index--
+    while (index > 0 && threshold - numbers[index] < 4) {
+        count += chooseNext(numbers, index)
+        index--
+    }
+
+    return count
+}
+
+numbers.unshift(0)
+numbers.push(numbers[numbers.length - 1] + 3)
+
+console.log(chooseNext(numbers, numbers.length - 1))
